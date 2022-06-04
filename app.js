@@ -61,17 +61,17 @@ var cart_products = [
   },
 ];
 
-const semZero = cart_products.filter(product => product.product_stock_quantity !== 0);
+const cart_with_products = cart_products.filter(product => product.product_stock_quantity !== 0);
 
-var cart_products_sanitized = [];
+let cart_products_sanitized = [];
 
-semZero.map(item => {
-  var duplicated =
+cart_with_products.map(item => {
+  let products_duplicated =
     cart_products_sanitized.findIndex(redItem => {
       return item.product_id == redItem.product_id;
     }) > -1;
 
-  if (!duplicated) {
+  if (!products_duplicated) {
     cart_products_sanitized.push(item);
   }
 });

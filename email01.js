@@ -67,9 +67,9 @@ let cart_products_sanitized = [];
 
 cart_with_products.map(item => {
   let products_duplicated =
-    cart_products_sanitized.findIndex(redItem => {
-      return item.product_id == redItem.product_id;
-    }) > -1;
+    cart_products_sanitized.findIndex(findItem => {
+      return item.product_id === findItem.product_id;
+    }) !== -1;
 
   if (!products_duplicated) {
     cart_products_sanitized.push(item);
